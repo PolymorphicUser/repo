@@ -1,6 +1,8 @@
 name: CI
 
-on:[PUSH]
+on:
+  push:
+    branches: [ main ]
 
 jobs:
   build:
