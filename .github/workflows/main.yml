@@ -41,8 +41,8 @@ jobs:
           echo "$EC2_KEY" > key.pem
           chmod 400 key.pem
           ssh -o StrictHostKeyChecking=no -i key.pem $EC2_USER@$EC2_HOST << 'EOF'
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devopschallenge:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devops-challenge-app:latest
             docker stop app || true
             docker rm app || true
-            docker run -d -p 80:80 --name app ${{ secrets.DOCKERHUB_USERNAME }}/devopschallenge:latest
+            docker run -d -p 80:80 --name app ${{ secrets.DOCKERHUB_USERNAME }}/devops-challenge-app:latest
           EOF
